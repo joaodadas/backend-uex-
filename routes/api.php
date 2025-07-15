@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GoogleMapsController;
+use App\Http\Controllers\Auth\PasswordResetController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -33,6 +35,8 @@ Route::middleware('auth:api')->group(function () {
 
     Route::post('/maps/cep-to-coordinates', [GoogleMapsController::class, 'getLatLongFromCep']);
 });
+Route::post('/forgot-password', [PasswordResetController::class, 'sendResetLinkEmail']);
+Route::post('/reset-password', [PasswordResetController::class, 'reset']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

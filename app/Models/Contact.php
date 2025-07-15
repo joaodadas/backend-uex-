@@ -10,12 +10,16 @@ class Contact extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
         'name',
         'email',
         'phone',
         'cep',
         'address',
+        'latitude',
+        'longitude',
+        'tipo_contrato',
+        'unidade',
+        'user_id',
     ];
 
     // Relacionamento com o usuário (opcional, mas útil)
